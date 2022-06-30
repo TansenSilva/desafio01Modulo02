@@ -26,37 +26,29 @@ public class jogoSorteioNumero {
         int numeroUsuario = 0;
         int novoJogo = 0;
         int pontuacaoTotal = 0;
-        int dificuldade = 0;
 
         while (novoJogo != 2) {
 
+            System.out.print("Selecione a Dificuldade do jogo: (1) Fácil -  (2) Normal -  (3) Difícil : ");
+            int dificuldade = input.nextInt();
 
-         while (dificuldade<1 || dificuldade>3) {
-
-             System.out.print("Selecione a Dificuldade do jogo: (1) Fácil -  (2) Normal -  (3) Difícil : ");
-             dificuldade = input.nextInt();
-
-             switch (dificuldade) {
-                 case 1:
-                     numeroaleatorio = aleatorio.nextInt(10);
-                     System.out.print("Digite um número aleatório de 0 a 10: ");
-                     numeroUsuario = input.nextInt();
-                     break;
-                 case 2:
-                     numeroaleatorio = aleatorio.nextInt(25);
-                     System.out.print("Digite um número aleatório de 0 a 25: ");
-                     numeroUsuario = input.nextInt();
-                     break;
-                 case 3:
-                     numeroaleatorio = aleatorio.nextInt(50);
-                     System.out.print("Digite um número aleatório de 0 a 50: ");
-                     numeroUsuario = input.nextInt();
-                     break;
-                 default:
-                     System.out.println("O número digitado é inválido, digite (1) ou (2) ou (3)");
-
-             }
-         }
+            switch (dificuldade) {
+                case 1:
+                    numeroaleatorio = aleatorio.nextInt(10);
+                    System.out.print("Digite um número aleatório de 0 a 10: ");
+                    numeroUsuario = input.nextInt();
+                    break;
+                case 2:
+                    numeroaleatorio = aleatorio.nextInt(25);
+                    System.out.print("Digite um número aleatório de 0 a 25: ");
+                    numeroUsuario = input.nextInt();
+                    break;
+                case 3:
+                    numeroaleatorio = aleatorio.nextInt(50);
+                    System.out.print("Digite um número aleatório de 0 a 50: ");
+                    numeroUsuario = input.nextInt();
+                    break;
+            }
 
             int numero = 0;
             int pontos = 0;
