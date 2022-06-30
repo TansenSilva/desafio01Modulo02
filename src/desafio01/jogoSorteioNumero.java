@@ -1,5 +1,6 @@
 package desafio01;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ public class jogoSorteioNumero {
 
             switch (dificuldade) {
                 case 1:
-                    numeroaleatorio = aleatorio.nextInt(5);
+                    numeroaleatorio = aleatorio.nextInt(10);
                     System.out.print("Digite um número aleatório de 0 a 10: ");
                     numeroUsuario = input.nextInt();
                     break;
