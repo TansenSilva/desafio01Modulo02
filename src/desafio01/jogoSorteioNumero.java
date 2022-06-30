@@ -26,39 +26,46 @@ public class jogoSorteioNumero {
         int numeroUsuario = 0;
         int novoJogo = 0;
         int pontuacaoTotal = 0;
+        int dificuldade = 0;
 
         while (novoJogo != 2) {
 
-            System.out.print("Selecione a Dificuldade do jogo: (1) Fácil -  (2) Normal -  (3) Difícil : ");
-            int dificuldade = input.nextInt();
 
-            switch (dificuldade) {
-                case 1:
-                    numeroaleatorio = aleatorio.nextInt(10);
-                    System.out.print("Digite um número aleatório de 0 a 10: ");
-                    numeroUsuario = input.nextInt();
-                    break;
-                case 2:
-                    numeroaleatorio = aleatorio.nextInt(50);
-                    System.out.print("Digite um número aleatório de 0 a 50: ");
-                    numeroUsuario = input.nextInt();
-                    break;
-                case 3:
-                    numeroaleatorio = aleatorio.nextInt(100);
-                    System.out.print("Digite um número aleatório de 0 a 100: ");
-                    numeroUsuario = input.nextInt();
-                    break;
-            }
+         while (dificuldade<1 || dificuldade>3) {
+
+             System.out.print("Selecione a Dificuldade do jogo: (1) Fácil -  (2) Normal -  (3) Difícil : ");
+             dificuldade = input.nextInt();
+
+             switch (dificuldade) {
+                 case 1:
+                     numeroaleatorio = aleatorio.nextInt(10);
+                     System.out.print("Digite um número aleatório de 0 a 10: ");
+                     numeroUsuario = input.nextInt();
+                     break;
+                 case 2:
+                     numeroaleatorio = aleatorio.nextInt(25);
+                     System.out.print("Digite um número aleatório de 0 a 25: ");
+                     numeroUsuario = input.nextInt();
+                     break;
+                 case 3:
+                     numeroaleatorio = aleatorio.nextInt(50);
+                     System.out.print("Digite um número aleatório de 0 a 50: ");
+                     numeroUsuario = input.nextInt();
+                     break;
+                 default:
+                     System.out.println("O número digitado é inválido, digite (1) ou (2) ou (3)");
+
+             }
+         }
 
             int numero = 0;
             int pontos = 0;
 
-            if (numeroUsuario < 0) {
-                while (numeroUsuario < 0) {
-                    System.out.println("Digite um número maior que 0");
-                    numeroUsuario = input.nextInt();
-                }
+            while (numeroUsuario < 0) {
+                System.out.println("Digite um número maior que 0");
+                numeroUsuario = input.nextInt();
             }
+
 
             if (numeroaleatorio == numeroUsuario) {
                 acertos.add(numeroUsuario);
@@ -109,8 +116,18 @@ public class jogoSorteioNumero {
         }
         System.out.println();
         System.out.println("Você conquistou "+pontuacaoTotal+" pontos no total. Parabéns!");
-        System.out.println("Acertos = "+acertos);
-        System.out.println("Erros = "+erros);
+
+        if (acertos.isEmpty()){
+            System.out.println("Acertos = Não houve acertos");
+        }else {
+            System.out.println("Acertos = "+acertos);
+        }
+
+        if (erros.isEmpty()){
+            System.out.println("Erros = Não houve erros");
+        }else {
+            System.out.println("Erros = "+erros);
+        }
         System.out.println("Fim de jogo!!!");
     }
 }
