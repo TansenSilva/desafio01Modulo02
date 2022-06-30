@@ -32,6 +32,11 @@ public class jogoSorteioNumero {
             System.out.print("Selecione a Dificuldade do jogo: (1) Fácil -  (2) Normal -  (3) Difícil : ");
             int dificuldade = input.nextInt();
 
+            if(dificuldade!=1 && dificuldade!=2 && dificuldade!=3){
+                System.out.println("O número digitado é inválido!");
+                continue;
+            }
+
             switch (dificuldade) {
                 case 1:
                     numeroaleatorio = aleatorio.nextInt(10);
