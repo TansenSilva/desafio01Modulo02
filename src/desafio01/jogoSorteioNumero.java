@@ -1,5 +1,6 @@
 package desafio01;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -8,6 +9,8 @@ public class jogoSorteioNumero {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Random aleatorio = new Random();
+        ArrayList<Integer> erros = new ArrayList<>();
+        ArrayList<Integer> acertos = new ArrayList<>();
 
         System.out.println("-------Jogo da Adivinhação-------");
         System.out.println();
@@ -58,14 +61,17 @@ public class jogoSorteioNumero {
             }
 
             if (numeroaleatorio == numeroUsuario) {
+                acertos.add(numeroUsuario);
                 System.out.println("O número sorteado foi: " + numeroaleatorio);
                 System.out.println("Parabéns você venceu!!!");
                 pontos += 10;
                 System.out.println("Você conquistou " + pontos + " pontos!");
             } else if (numeroUsuario < numeroaleatorio - 1 || numeroUsuario > numeroaleatorio + 1) {
+                erros.add(numeroUsuario);
                 System.out.println("Não foi deste vez. O número sorteado foi: " + numeroaleatorio);
                 System.out.println("-----Game Over - Voce perdeu :( -----");
             } else {
+                erros.add(numeroUsuario);
                 pontos += 5;
                 System.out.println("Você passou perto e conquistou " + pontos + " pontos!");
                 System.out.print("Tente outra vez, digite outro número: ");
@@ -77,12 +83,14 @@ public class jogoSorteioNumero {
                 }
 
                 if (numero == numeroaleatorio) {
+                    acertos.add(numero);
                     System.out.println("O número sorteado foi: " + numeroaleatorio);
                     System.out.println("Parabéns você acertou!!!");
                     pontos += 10;
                     System.out.println("Você conquistou " + pontos + " pontos!");
 
                 } else if (numero > numeroaleatorio + 1 || numero < numeroaleatorio - 1 && numero != 00) {
+                    erros.add(numero);
                     System.out.println("Não foi deste vez. O número sorteado foi: " + numeroaleatorio);
                     System.out.println("Você conquistou " + pontos + " pontos!");
                     System.out.println("-----Game Over - Voce perdeu :( -----");
@@ -101,6 +109,8 @@ public class jogoSorteioNumero {
         }
         System.out.println();
         System.out.println("Você conquistou "+pontuacaoTotal+" pontos no total. Parabéns!");
+        System.out.println("Acertos = "+acertos);
+        System.out.println("Erros = "+erros);
         System.out.println("Fim de jogo!!!");
     }
 }
