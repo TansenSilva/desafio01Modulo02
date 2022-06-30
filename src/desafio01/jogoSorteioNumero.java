@@ -81,10 +81,6 @@ public class jogoSorteioNumero {
                 System.out.print("Tente outra vez, digite outro número: ");
                 numero = input.nextInt();
 
-                while (numero == numeroUsuario) {
-                    System.out.println("Você já digitou esse número. Tente outro número ou '00' para desistir!");
-                    numero = input.nextInt();
-                }
 
                 if (numero == numeroaleatorio) {
                     acertos.add(numero);
@@ -93,7 +89,7 @@ public class jogoSorteioNumero {
                     pontos += 10;
                     System.out.println("Você conquistou " + pontos + " pontos!");
 
-                } else if (numero > numeroaleatorio + 1 || numero < numeroaleatorio - 1 && numero != 00) {
+                } else if (numero > numeroaleatorio + 1 || numero < numeroaleatorio - 1 && numero != 0) {
                     erros.add(numero);
                     System.out.println("Não foi deste vez. O número sorteado foi: " + numeroaleatorio);
                     System.out.println("Você conquistou " + pontos + " pontos!");
